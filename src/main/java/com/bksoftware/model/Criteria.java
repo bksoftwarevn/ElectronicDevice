@@ -6,17 +6,15 @@ public class Criteria {
     private String name;
     private boolean deleted;
     private Integer criteriaTypeId;
-    private Integer productId;
 
     public Criteria() {
     }
 
-    public Criteria(int id, String name, boolean deleted, Integer criteriaTypeId, Integer productId) {
+    public Criteria(int id, String name, boolean deleted, Integer criteriaTypeId) {
         this.id = id;
         this.name = name;
         this.deleted = deleted;
         this.criteriaTypeId = criteriaTypeId;
-        this.productId = productId;
     }
 
     public void setId(int id) {
@@ -47,14 +45,6 @@ public class Criteria {
         this.criteriaTypeId = criteriaTypeId;
     }
 
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
     public int getId() {
         return id;
     }
@@ -66,7 +56,6 @@ public class Criteria {
                 ", name='" + name + '\'' +
                 ", deleted=" + deleted +
                 ", criteriaTypeId=" + criteriaTypeId +
-                ", productId=" + productId +
                 '}';
     }
 }
