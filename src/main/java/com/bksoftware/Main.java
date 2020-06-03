@@ -1,11 +1,11 @@
 package com.bksoftware;
 
-import com.bksoftware.dao.BrandDAO;
-import com.bksoftware.model.Brand;
+import com.bksoftware.controller.ProductController;
+import com.bksoftware.dao.ProductDAO;
 import com.bksoftware.model.MyConnection;
+import com.bksoftware.model.Product;
 
-import java.lang.reflect.Field;
-import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
 
@@ -13,11 +13,23 @@ public class Main {
         // write your code here
         MyConnection myConnection = new MyConnection();
         try {
-            myConnection.getMyconnection();
-            BrandDAO dao = new BrandDAO();
-//            Brand brand = dao.upload(new Brand(0, "Dell", false));
-//            System.out.println(brand.getId());
-               dao.update(new Brand(1,"SpaceX", false));
+            myConnection.connectDB();
+            ProductController controller = new ProductController();
+//            try {
+//                if (controller.upload(new Product(4, "Nồi cơm điện X Pro", "NC-X", "NCD160"
+//                        , 400000, 399000, false,
+//                        12, null, "Nồi cơm siêu ngon",
+//                        null, false, 1, 1)) != null) {
+//                    System.out.println("add product success");
+//                } else {
+//                    System.out.println("add product fail");
+//                }
+//            }catch (Exception ex){
+//                System.out.println("can not add product");
+//            }
+            ((List<Product>)controller.findAll().getData()).forEach(p -> System.out.println(p.toString()));
+            myConnection.closeConnection();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

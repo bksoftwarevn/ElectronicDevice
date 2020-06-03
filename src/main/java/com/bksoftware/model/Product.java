@@ -1,6 +1,6 @@
 package com.bksoftware.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Product {
     private int id;
@@ -9,11 +9,11 @@ public class Product {
     private String code; // ma san pham
     private double price; // gia goc
     private double promotion_price; // gia khuyen mai
-    private boolean sold_out; // true: het hang
+    private boolean soldOut; // true: het hang
     private int guarantee; // thoi gian bao hanh (thang)
     private String image; // image url
     private String introduction; // bai gioi thieu
-    private LocalDate createDate; // ngay tao san pham
+    private Date createDate; // ngay tao san pham
     private boolean deleted;
 
     // FK to Category
@@ -24,14 +24,14 @@ public class Product {
     // Many to One
     private Integer brandId;
 
-    public Product(int id, String name, String model, String code, double price, double promotion_price, boolean sold_out, int guarantee, String image, String introduction, LocalDate createDate, boolean deleted, Integer categoryId, Integer brandId) {
+    public Product(int id, String name, String model, String code, double price, double promotion_price, boolean soldOut, int guarantee, String image, String introduction, Date createDate, boolean deleted, Integer categoryId, Integer brandId) {
         this.id = id;
         this.name = name;
         this.model = model;
         this.code = code;
         this.price = price;
         this.promotion_price = promotion_price;
-        this.sold_out = sold_out;
+        this.soldOut = soldOut;
         this.guarantee = guarantee;
         this.image = image;
         this.introduction = introduction;
@@ -41,13 +41,13 @@ public class Product {
         this.brandId = brandId;
     }
 
-    public Product(String name, String model, String code, double price, double promotion_price, boolean sold_out, int guarantee, String image, String introduction, LocalDate createDate, boolean deleted) {
+    public Product(String name, String model, String code, double price, double promotion_price, boolean soldOut, int guarantee, String image, String introduction, Date createDate, boolean deleted) {
         this.name = name;
         this.model = model;
         this.code = code;
         this.price = price;
         this.promotion_price = promotion_price;
-        this.sold_out = sold_out;
+        this.soldOut = soldOut;
         this.guarantee = guarantee;
         this.image = image;
         this.introduction = introduction;
@@ -114,11 +114,11 @@ public class Product {
     }
 
     public boolean isSold_out() {
-        return sold_out;
+        return soldOut;
     }
 
-    public Product setSold_out(boolean sold_out) {
-        this.sold_out = sold_out;
+    public Product setSold_out(boolean soldOut) {
+        this.soldOut = soldOut;
         return this;
     }
 
@@ -149,11 +149,11 @@ public class Product {
         return this;
     }
 
-    public LocalDate getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public Product setCreateDate(LocalDate createDate) {
+    public Product setCreateDate(Date createDate) {
         this.createDate = createDate;
         return this;
     }
@@ -183,5 +183,25 @@ public class Product {
     public Product setBrandId(Integer brandId) {
         this.brandId = brandId;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name=" + name +
+                ", model=" + model +
+                ", code=" + code +
+                ", price=" + price +
+                ", promotionPrice=" + promotion_price +
+                ", soldOut=" + soldOut +
+                ", guarantee=" + guarantee +
+                ", introduction=" + introduction +
+                ", image=" + image +
+                ", createDate=" + createDate +
+                ", deleted=" + deleted +
+                ", categoryId=" + categoryId +
+                ", brandId=" + brandId +
+                '}';
     }
 }

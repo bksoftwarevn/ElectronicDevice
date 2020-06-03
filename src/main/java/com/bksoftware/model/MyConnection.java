@@ -8,9 +8,6 @@ public class MyConnection {
 
     //khi connect thanh cong bang driver thi tra ve connection chua thong tin database
     public static Connection connection = null; //khi chua ket noi la object ne de null
-    private static Statement Statement = null;// dung de luu querry de thuc hien
-    private static ResultSet ResultSet = null;// chua ket qua ta ve khi querry statement
-    //testDriver
 
     public void driverTest() throws ClassNotFoundException {
         try {
@@ -20,7 +17,7 @@ public class MyConnection {
         }
     }
 
-    public Connection getMyconnection() throws ClassNotFoundException, SQLException {
+    public Connection connectDB() throws ClassNotFoundException, SQLException {
         if (connection == null) {
             driverTest();
             try {
@@ -37,17 +34,10 @@ public class MyConnection {
 
     // donh lai tat ca cac ket noi, dong nguoc mo
     public void closeConnection() throws SQLException {
-        //close resultset
-        if (ResultSet != null) {
-            ResultSet.close();
-        }
-        //close statement
-        if (Statement != null) {
-            Statement.close();
-        }
         //close connection
         if (connection != null) {
             connection.close();
+            System.out.println("Connection is closed");
         }
     }
 }

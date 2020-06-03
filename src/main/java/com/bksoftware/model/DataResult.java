@@ -17,11 +17,29 @@ public class DataResult {
         return new DataResult("success", data);
     }
 
-    public static DataResult badRequest(Object data) {
-        return new DataResult("bad request", data);
+    public static DataResult badRequest(String mess) {
+        return new DataResult("bad request", mess);
     }
 
-    public static DataResult serverError(Object data) {
-        return new DataResult("server error", data);
+    public static DataResult serverError(String mess) {
+        return new DataResult("server error", mess);
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public DataResult setMessage(String message) {
+        this.message = message;
+        return this;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public DataResult setData(Object data) {
+        this.data = data;
+        return this;
     }
 }

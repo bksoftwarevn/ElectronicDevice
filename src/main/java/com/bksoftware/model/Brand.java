@@ -6,6 +6,8 @@ public class Brand {
     private String name;
     private boolean deleted;
 
+
+
     public Brand() {
     }
 
